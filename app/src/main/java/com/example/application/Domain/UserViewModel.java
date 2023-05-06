@@ -1,9 +1,10 @@
 package com.example.application.Domain;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
 
+import com.example.application.Data.DataSource.Room.Entity.User;
 import com.example.application.Data.Models.UserModel;
 import com.example.application.Data.Repositories.UserRepository;
 
@@ -21,7 +22,8 @@ public class UserViewModel extends ViewModel {
         this.userModels = userRepository.getUsers();
     }
 
+
     public MutableLiveData<LinkedList<UserModel>> getUsers() {
-        return userModels;
+        return userRepository.getDatabaseData();
     }
 }

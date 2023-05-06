@@ -9,10 +9,13 @@ import androidx.room.RoomDatabase;
 import com.example.application.Data.DataSource.Room.Entity.User;
 import com.example.application.Data.DataSource.Room.Dao.UserDAO;
 
+import java.util.concurrent.Executor;
+
 @Database(entities = {User.class},version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract UserDAO userDAO();
+    public Executor databaseWriteExecutor;
 
+    public abstract UserDAO userDAO();
     private static AppDatabase instance;
 
     public static synchronized AppDatabase getInstance(Context context) {
