@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UI.Activities.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="292dp"
+        android:layout_height="213dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cinema" />
+
+    <TextView
+        android:id="@+id/Nametag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Фильмотека"
+        android:textColor="#11FF00"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TableLayout
+        android:layout_width="255dp"
+        android:layout_height="274dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Nametag">
+
+        <Button
+            android:id="@+id/M_bToNew"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="MVVM"
+            android:textColor="@color/teal_200" />
+
+        <Button
+            android:id="@+id/M_bToNew2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="New2"
+            android:textColor="@color/teal_200"/>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
