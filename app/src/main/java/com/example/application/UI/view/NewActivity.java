@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
+import com.example.application.Data.DataSource.Room.Dao.UserDAO;
 import com.example.application.Data.DataSource.Room.Database.AppDatabase;
 import com.example.application.Data.DataSource.Room.Entity.User;
 import com.example.application.R;
@@ -31,13 +33,10 @@ public class NewActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Добавление юзера
-                User user= new User();
-                user.name="John";
-                user.email="John@email.ru";
-                AppDatabase.getInstance(getApplicationContext()).userDAO().insert(user);
-                //Получение данных
-                List<User> listofUsers=AppDatabase.getInstance(getApplicationContext()).userDAO().getAllUsers();
+                AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                        AppDatabase.class,"database").build();
+                UserDAO userDAO = db.userDAO();
+                List<User> users = userDAO.getAllUsers();
             }
         });
     }
