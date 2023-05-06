@@ -1,28 +1,16 @@
 package com.example.application.UI.view;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.application.Data.DataSource.AppDatabase;
-import com.example.application.Data.DataSource.User;
+import com.example.application.Data.DataSource.Room.Database.AppDatabase;
+import com.example.application.Data.DataSource.Room.Entity.User;
 import com.example.application.R;
-import com.example.application.Data.Models.UserModel;
-import com.example.application.Domain.UserViewModel;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 
 public class NewActivity extends AppCompatActivity {

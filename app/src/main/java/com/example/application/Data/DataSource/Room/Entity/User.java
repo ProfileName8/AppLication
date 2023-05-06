@@ -1,4 +1,4 @@
-package com.example.application.Data.DataSource;
+package com.example.application.Data.DataSource.Room.Entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

@@ -1,10 +1,13 @@
-package com.example.application.Data.DataSource;
+package com.example.application.Data.DataSource.Room.Database;
 
 import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
+import com.example.application.Data.DataSource.Room.Entity.User;
+import com.example.application.Data.DataSource.Room.Dao.UserDAO;
 
 @Database(entities = {User.class},version = 1)
 public abstract class AppDatabase extends RoomDatabase {
