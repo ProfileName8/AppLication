@@ -3,7 +3,6 @@ package com.example.application.Data.Repositories;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 
 import com.example.application.Data.DataSource.Room.Database.AppDatabase;
@@ -11,9 +10,8 @@ import com.example.application.Data.DataSource.Room.Entity.User;
 import com.example.application.Data.DataSource.UserDatasource;
 import com.example.application.Data.Models.UserModel;
 
-import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class UserRepository {
     private final UserDatasource userDatasource;
@@ -32,12 +30,15 @@ public class UserRepository {
         });
     }
 
-    public MutableLiveData<LinkedList<UserModel>> getUsers(){
-        return userDatasource.getUsers();
+    public LiveData<List<UserModel>> getModels(){
+        return userDatasource.getModels();
     }
 
-    public MutableLiveData<LinkedList<UserModel>> getDatabaseData(){
-        return (MutableLiveData<LinkedList<UserModel>>) appDatabase.userDAO().getAllUsers();
+    public LiveData<List<UserModel>> getDatabaseData(){
+        return Transformations.map(
+                appDatabase.userDAO().getAllUsers(),
+                (values) -> values.stream().map(User::toDomainModel).collect(Collectors.toList())
+        );
     }
 }
 

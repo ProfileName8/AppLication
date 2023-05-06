@@ -10,6 +10,7 @@ public class UserModel {
         this.user = user;
         this.email = email;
     }
+
     public UserModel(UserModel userModel){
         this.user=userModel.getUser();
         this.email=userModel.getEmail();

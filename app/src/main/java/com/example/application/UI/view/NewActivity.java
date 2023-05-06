@@ -45,8 +45,6 @@ public class NewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 model.getUsers().observe(NewActivity.this,t->{
-                    un.setText(t.element().getUser());
-                    um.setText(t.element().getEmail());
                 });
             }
         });

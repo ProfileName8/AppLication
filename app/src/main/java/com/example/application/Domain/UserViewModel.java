@@ -1,5 +1,6 @@
 package com.example.application.Domain;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
@@ -15,15 +16,14 @@ public class UserViewModel extends ViewModel {
 
     private final UserRepository userRepository;
 
-    private MutableLiveData<LinkedList<UserModel>> userModels;
+    private LiveData<List<UserModel>> users;
 
     public UserViewModel(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.userModels = userRepository.getUsers();
+        this.users = userRepository.getDatabaseData();
     }
 
-
-    public MutableLiveData<LinkedList<UserModel>> getUsers() {
-        return userRepository.getDatabaseData();
+    public LiveData<List<UserModel>> getUsers() {
+        return users;
     }
 }
